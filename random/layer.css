@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .main{
     display:grid;
     grid-template: 60px 1fr 150px / 200px 1fr;
@@ -27,4 +28,35 @@
 
 .footer {
     grid-area: footer;
+=======
+.main{
+    display:grid;
+    grid-template: 60px 1fr 150px / 200px 1fr;
+    height: 100vh;
+    grid-gap: 10px;
+    grid-template-areas:"header header" 
+                        "left content" 
+                        "footer footer";
+}
+.area {
+    background-color:aqua; 
+    border:2px solid red;
+}
+.header {
+    grid-area: header;
+}
+
+.left {
+    grid-area: left;
+}
+
+.content {
+    grid-area: content;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.footer {
+    grid-area: footer;
+>>>>>>> 5315907e8e581a90430725d97c0c7c366232eaa1
 }
