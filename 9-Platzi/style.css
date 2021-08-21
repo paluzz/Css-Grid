@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     font-family: 'Lato', sans-serif;
     margin:0;
@@ -6,20 +5,38 @@ body {
 }
 
 .badge img{
-    height: 140px;
-    width: 140px;
+    max-height: 70px;
+    max-width: 70px;
     background-color: #61dafb;
     border-radius: 50%;
     padding: 5px;
+    margin: -10px;
 }
 
 .hero {
     background-color: #23475b;
     color:white;
     padding:32px 15px;
+    display:grid;
+    grid-template-columns: minmax(auto, 1024px);
+    justify-content: center;
+}
+
+.hero-container {   
+    display: grid;
+    grid-template-columns: 70px 1fr 320px;
+    grid-template-areas: "badge title form"
+                        ". description form"
+                        ". countdown form";
+    grid-gap: 10px;
+}
+
+.badge {
+    grid-area: badge;
 }
 
 .title {
+    grid-area: title;
     font-size: 36px;
     font-weight: bold;
     margin: 0;
@@ -28,6 +45,7 @@ body {
 }
 
 .form {
+    grid-area: form;
     text-align: center;
     background-color: rgba(255,255,255,0.9);
     padding: 1.5em;
@@ -63,70 +81,47 @@ body {
 
 .form button:hover {
     cursor: pointer;
-=======
-body {
-    font-family: 'Lato', sans-serif;
-    margin:0;
-    font-weight: bold;
+    background-color: #74a122;
 }
 
-.badge img{
-    height: 140px;
-    width: 140px;
-    background-color: #61dafb;
-    border-radius: 50%;
-    padding: 5px;
+.countdown {
+    grid-area: countdown;
 }
 
-.hero {
-    background-color: #23475b;
-    color:white;
-    padding:32px 15px;
-}
-
-.title {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-.form {
-    text-align: center;
-    background-color: rgba(255,255,255,0.9);
-    padding: 1.5em;
-    border-radius: 10px;
-}
-
-.form input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #dbdbe2; 
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-}
-
-.form p {
+.countdown p {
     font-size: 20px;
-    color: #3a3b3f;
-    margin-bottom: 1em;
+    text-align: center;
+    font-weight: 300;
 }
 
-.form button {
-    background-color: #98ca3f;
-    color:white;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    border-bottom: 5px solid #6d932b;
+.countdown span {
+    font-size: 33px;
+}
+
+.countdown span:after {
+    content: ":";
     display: inline-block;
+    margin: 0 5px;
 }
 
-.form button:hover {
-    cursor: pointer;
->>>>>>> 5315907e8e581a90430725d97c0c7c366232eaa1
+.countdown span:last-child:after {
+    display: none;
+}
+
+p {
+    margin: 0;
+}
+
+.description {
+    grid-area: description;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 70px 1fr;
+        grid-template-areas: "badge title "
+                            "description description "
+                            "form form"
+                            "countdown countdown";
+    }
 }
